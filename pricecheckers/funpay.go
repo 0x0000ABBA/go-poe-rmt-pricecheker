@@ -1,15 +1,17 @@
 package pricecheckers
 
 import (
-	"github.com/gocolly/colly"
+	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/gocolly/colly"
 )
 
 const FUNPAY_URL = "https://funpay.com/en/chips/173/"
-const LEAGUE = "(PC) The Forbidden Sanctum"
-const MIN_AMOUNT = 20
-const TOLERANCE = 0.005
+const LEAGUE = "(PC) Crucible"
+const MIN_AMOUNT = 2
+const TOLERANCE = 0.05
 
 func GetFunpayPrices(c *colly.Collector) ([]float64, error) {
 
@@ -40,6 +42,10 @@ func GetFunpayPrices(c *colly.Collector) ([]float64, error) {
 	if er != nil {
 		return nil, er
 	}
+
+	sort.Slice(prices, func(i, j int) bool {
+		return prices[i] < prices[j]
+	})
 
 	return prices, nil
 }

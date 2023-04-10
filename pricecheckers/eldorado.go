@@ -7,7 +7,7 @@ import (
 	"sort"
 )
 
-const ELDORADO_URL = "https://www.eldorado.gg/api/predefinedOffers/augmentedItem/4d6bc251-6643-4bea-b9b1-542e21f106a4/?pageIndex=1&pageSize=20"
+const ELDORADO_URL = "https://www.eldorado.gg/api/predefinedOffers/augmentedItem/c21bdc7e-6375-4e48-a175-a4b82c2c0310/?pageIndex=1&pageSize=20"
 
 type EldoradoResponse struct {
 	Results []EldoradoItem
